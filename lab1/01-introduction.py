@@ -7,7 +7,7 @@
 # * a small example - analyse the code and try it
 # * some exercises
 
-# In[1]:
+# In[ ]:
 
 
 # Requirements for this tutorial
@@ -16,7 +16,7 @@ get_ipython().system(' pip install numpy')
 get_ipython().system(' pip install matplotlib')
 
 
-# In[2]:
+# In[ ]:
 
 
 # If you prefer, you can convert this notebook to a Python script by uncommenting the following command
@@ -24,7 +24,7 @@ get_ipython().system(' pip install nbconvert')
 get_ipython().system(' jupyter nbconvert --to script 01-introduction.ipynb')
 
 
-# In[5]:
+# In[ ]:
 
 
 import cv2
@@ -32,7 +32,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-dataDir = 'images/'
+dataDir = '../images/'
 
 
 # A reference table with some useful functions:
@@ -69,7 +69,7 @@ dataDir = 'images/'
 # 
 # Download the folder named "Images for the exercises" from moodle. It contains examples of images that will be used in the various practical classes.
 
-# In[9]:
+# In[ ]:
 
 
 # Opening an image
@@ -85,7 +85,7 @@ cv2.waitKey(0)
 cv2.destroyWindow("apple.jpg")
 
 
-# In[8]:
+# In[ ]:
 
 
 # Check image characteristics
@@ -99,7 +99,7 @@ print(f'width: {w}')
 print(f'channels: {c}')
 
 
-# In[10]:
+# In[ ]:
 
 
 # Saving image in bmp format
@@ -128,7 +128,7 @@ cv2.waitKey(0)
 cv2.destroyWindow("grayscale example")
 
 
-# In[25]:
+# In[ ]:
 
 
 # Draw a line with thickness of 5 px
@@ -147,7 +147,7 @@ cv2.destroyWindow("grayscale example")
 
 # Exercise 1.1 - Create a color image with 400 (rows) x 300 (columns) pixels in yellow. Then, draw two diagonal lines across the image, such that one is red, and the other one blue.
 
-# In[54]:
+# In[ ]:
 
 
 img = np.ones((300, 400, 3), np.uint8)
@@ -176,7 +176,7 @@ cv2.destroyWindow("yellow image example")
 # 
 # Exercise 1.2 - Convert the image from BGR to RGB so that the image appears yellow on matplotlib.
 
-# In[55]:
+# In[ ]:
 
 
 altered_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -188,7 +188,7 @@ ax = plt.axis("off")
 
 # Exercise 1.3 - Read any color image, in BGR format, display it in one window, convert it to grayscale, display the grayscale image in another window and save the grayscale image to a different file.
 
-# In[81]:
+# In[ ]:
 
 
 # Open image
@@ -225,15 +225,54 @@ cv2.imwrite("gray-scale-ex3.jpg", grayscale_img )
 # Open image
 bgr_img = cv2.imread(os.path.join(dataDir, "bank_notes_1.JPG"))
 
-bgr_img_blue, bgr_img_green, bgr_img_red = cv2.split(bgr_img)
+bgr_img_red = bgr_img.copy()
 
+bgr_img_red[:, :, 0:2] = 0
 
-cv2.imshow("red channel", bgr_img)
-#cv2.imshow("green channel", bgr_img_green)
-#cv2.imshow("blue channel", bgr_img_blue)
+bgr_img_green = bgr_img.copy()
+
+bgr_img_green[:, :, [0,2]] = 0
+
+bgr_img_blue = bgr_img.copy()
+
+bgr_img_blue[:, :, 1:3] = 0
+
+cv2.imshow("red channel", bgr_img_red)
+cv2.imshow("green channel", bgr_img_green)
+cv2.imshow("blue channel", bgr_img_blue)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+# Display two images side by side using matplotlib (remember that matplotlib uses the RGB color space instead of BGR)
+rgb_red = cv2.cvtColor(bgr_img_red, cv2.COLOR_BGR2RGB)
+rgb_green = cv2.cvtColor(bgr_img_green, cv2.COLOR_BGR2RGB)
+rgb_blue = cv2.cvtColor(bgr_img_blue, cv2.COLOR_BGR2RGB)
+
+f, axarr = plt.subplots(1,3)
+axarr[0].imshow(rgb_red)
+axarr[1].imshow(rgb_green)
+axarr[2].imshow(rgb_blue)
+axarr[0].axis("off")
+axarr[1].axis("off")
+axarr[2].axis("off")
+plt.show()
+
+bgr_img_red += 60 
+
+final_img = cv2.add(bgr_img_red, cv2.add(bgr_img_green, bgr_img_blue))
+
+cv2.imshow("final image", final_img)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+final_img_rgb = cv2.cvtColor(final_img, cv2.COLOR_BGR2RGB)
+plt.imshow(final_img_rgb)
+plt.axis("off") 
+plt.show()
+
 
 
 # Exercise 1.5 - Convert the image to HSV, split the 3 HSV channels and show each channel in a separate window. Add a constant value to the saturation channel, merge the channels into a new color image and show the resulting image.
@@ -241,7 +280,45 @@ cv2.destroyAllWindows()
 # In[ ]:
 
 
-# TODO
+bgr_img = cv2.imread(os.path.join(dataDir, "bank_notes_1.JPG"))
+
+
+hsv_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2HSV)
+
+hue , saturation, vue = cv2.split(hsv_img)
+
+cv2.imshow("hue view",hue)
+cv2.imshow("saturation view",saturation)
+cv2.imshow("vue view",vue)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+f, axarr = plt.subplots(1,3)
+axarr[0].imshow(hue, cmap="gray")
+axarr[1].imshow(saturation, cmap="gray")
+axarr[2].imshow(vue, cmap="gray")
+axarr[0].axis("off")
+axarr[1].axis("off")
+axarr[2].axis("off")
+plt.show()
+
+
+final_img = hsv_img.copy()
+final_img[:,:,1] +=40
+
+final_img_bgr = cv2.cvtColor(final_img, cv2.COLOR_HSV2BGR)
+
+cv2.imshow("hue summed image", final_img_bgr)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+final_img_rgb = cv2.cvtColor(final_img, cv2.COLOR_HSV2RGB)
+
+plt.imshow(final_img_rgb)
+plt.axis("off")
+plt.show()
+
 
 
 # ### 2. OpenCV Interactive Interface
