@@ -1,4 +1,4 @@
 images/
 venv/
 __pycache__/
-masks_output/
+output/
