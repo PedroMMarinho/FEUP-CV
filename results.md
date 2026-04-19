@@ -1,3 +1,25 @@
+Failed a total of 0.39866444666444667% on each classifications
+Failed a total of 0.41467889908256883% of classifications
+Failed a total of 226 classifications
+Failed a total of 119 stripe error
+Failed a total of exact 53 stripe error
+Ball 0: 12 errors
+Ball 1: 10 errors
+Ball 2: 3 errors
+Ball 3: 7 errors
+Ball 4: 12 errors
+Ball 5: 9 errors
+Ball 6: 5 errors
+Ball 7: 10 errors
+Ball 8: 12 errors
+Ball 9: 21 errors
+Ball 10: 13 errors
+Ball 11: 19 errors
+Ball 12: 22 errors
+Ball 13: 25 errors
+Ball 14: 19 errors
+Ball 15: 26 errors
+
 
 # Original
 
