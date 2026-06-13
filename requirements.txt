@@ -3,3 +3,12 @@ opencv-python
 numpy
 matplotlib
 ipywidgets
+torch 
+torchvision 
+roboflow 
+scikit-learn 
+tqdm 
+pandas 
+seaborn 
+pillow
+python-dotenv
