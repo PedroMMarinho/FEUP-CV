@@ -3,3 +3,17 @@ venv/
 __pycache__/
 output/
 .env
+datasets/
+proj/task_2.0/results/
+proj/task2/pre-preprocessing/
+proj/task2/results_task2
+runs/
+.vscode/
+proj/task3/billiard-9/
+proj/task3/datasets-yolo
+proj/task3/new_detection_dataset
+proj/task3/results2
+proj/task3.2/data
+proj/task3.2/pool-table-segmentation-1
+proj/task3.2/results
+proj/task3.2/results2

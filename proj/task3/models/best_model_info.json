@@ -1,0 +1,10 @@
+{
+    "best_model": "RT-DETR",
+    "path": "runs_ball_detection/rtdetr_main_4class/weights/best.pt",
+    "classes": [
+        "Black",
+        "Cue",
+        "Solid",
+        "Striped"
+    ]
+}

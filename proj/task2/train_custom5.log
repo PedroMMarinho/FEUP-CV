@@ -1,0 +1,104 @@
+nohup: ignoring input
+🔧 Parser running with datasets: ['main_dataset', 'extra-3', 'custom']
+Loaded 247 partition rules from partition.csv
+
+Success! Extracted 1532 images into parsed_dataset_catalog.json
+Using device: cuda
+GPU: Quadro RTX 8000
+VRAM available: 47.3 GB
+📁 Initialized new experiment folder: results_task2/run_82
+   ├─ 🧠 Models:  results_task2/run_82/models
+   ├─ 📊 Graphs:  results_task2/run_82/graphs
+   └─ 📝 Results: results_task2/run_82/results.csv
+Config loaded ✓
+Loaded 1,532 entries
+Train: 1,273  |  Val: 239  |  Test: 20
+Dataset classes ready ✓
+Model                  Parameters
+----------------------------------
+ConvNeXt_Tiny          28,021,361
+Helpers ready ✓
+Initializing Datasets and DataLoaders...
+
+============================================================
+  Training: ConvNeXt_Tiny
+============================================================
+  [  1/30]  train=2.5643  val=2.3729 ← ✓
+  [  2/30]  train=2.1702  val=1.9237 ← ✓
+  [  3/30]  train=1.9001  val=1.9025 ← ✓
+  [  4/30]  train=1.9281  val=1.6829 ← ✓
+  [  5/30]  train=1.7214  val=1.5385 ← ✓
+  [  6/30]  train=1.6260  val=1.5564
+  [  7/30]  train=1.6452  val=1.5610
+  [  8/30]  train=1.4517  val=1.3433 ← ✓
+  [  9/30]  train=1.3929  val=1.2899 ← ✓
+  [ 10/30]  train=1.2967  val=1.1970 ← ✓
+  [ 11/30]  train=1.2881  val=1.2125
+  [ 12/30]  train=1.2297  val=1.0812 ← ✓
+  [ 13/30]  train=1.1253  val=1.4359
+  [ 14/30]  train=1.1271  val=1.1847
+  [ 15/30]  train=1.0185  val=0.9749 ← ✓
+  [ 16/30]  train=0.9856  val=1.1082
+  [ 17/30]  train=0.8694  val=1.0442
+  [ 18/30]  train=0.8272  val=0.9504 ← ✓
+  [ 19/30]  train=0.7715  val=0.9171 ← ✓
+  [ 20/30]  train=0.7168  val=0.8874 ← ✓
+  [ 21/30]  train=0.6410  val=0.9726
+  [ 22/30]  train=0.6702  val=0.8098 ← ✓
+  [ 23/30]  train=0.6086  val=0.8295
+  [ 24/30]  train=0.5513  val=0.8278
+  [ 25/30]  train=0.5121  val=0.8100
+  [ 26/30]  train=0.4958  val=0.8371
+  [ 27/30]  train=0.4758  val=0.7790 ← ✓
+  [ 28/30]  train=0.4559  val=0.7716 ← ✓
+  [ 29/30]  train=0.4440  val=0.7603 ← ✓
+  [ 30/30]  train=0.4388  val=0.7656
+
+  Test →  MAE=1.150  RMSE=1.910  Acc@1=0.750  ExactAcc=0.350
+
+
+All models done! Results saved to results_task2/run_82/results.csv
+Saved: loss_curves.png
+Saved: scatter_plots.png
+Saved: error_distributions.png
+           Model  MAE ↓  RMSE ↓  Acc@1 ↑  Exact ↑
+1  ConvNeXt_Tiny   1.15    1.91     0.75     0.35
+Saved: model_comparison.png
+📊 Final Model Rankings saved to CSV:
+ Rank         model               datasets_used  MAE  MSE   RMSE  Acc@1  ExactAcc
+    1 ConvNeXt_Tiny main_dataset,extra-3,custom 1.15 3.65 1.9105   0.75      0.35
+------------------------------------------------------------
+🏆 Best model: ConvNeXt_Tiny  (ExactAcc=0.350)
+Running full evaluation on 20 test images using ConvNeXt_Tiny...
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]
+
+========================================
+  FINAL TEST SET EVALUATION REPORT
+========================================
+Model Evaluated        : ConvNeXt_Tiny
+Total Images Evaluated : 20
+MAE  (avg error)       : 1.150 balls
+RMSE (penalty error)   : 1.910
+Acc@1 (within ±1)      : 75.00%
+Exact Accuracy         : 35.00%
+========================================
+
+🔍 Detailed error analysis saved to: results_task2/run_82/ConvNeXt_Tiny_error_breakdown.csv
+
+Top 5 Worst Predictions:
+                                     Image_Name  Actual_Balls  Predicted_Balls  Error
+  9_png.rf.3a4164e5647feea77eb3062be7e65aea.jpg             7               14      7
+118_png.rf.3e82e1f3d657302b61a62c113271b753.jpg            10                8     -2
+ 26_png.rf.58fd63888dc80d24e902a96995a31656.jpg            10                8     -2
+136_png.rf.e99c3dfd6e84ce294cdabc3bb5ee8a75.jpg            12               14      2
+107_png.rf.f31cf99275d8de0c817398bad1fbb98c.jpg            14               12     -2
+
+🔍 Finding missed predictions for ConvNeXt_Tiny...
+Found 13 mistakes. Generating heatmaps...
+✅ Heatmaps of missed images saved to results_task2/run_82/graphs/ConvNeXt_Tiny_missed_gradcam.png
+🚀 Starting final pipeline run with datasets: ['main_dataset', 'extra-3', 'custom']
+
+▶️  Running parser.py...
+▶️  Running task2.py...
+
+✅ PIPELINE COMPLETED! Your final model and results are ready.

@@ -1,0 +1,6 @@
+Melhor run foi com o dataset "main_dataset" e "extra-3". 
+    O modelo melhor é o ConvNeXt_Tiny. 
+        Ver folder run_36
+
+Run_65 tem os "heatmaps" para perceber o que o modelo está a olhar para classificar as imagens. 
+    Ver folder run_65
