@@ -1,0 +1,5 @@
+Main - https://universe.roboflow.com/bachelorthesis/8-ball-pool-l530o
+extra 1 - https://universe.roboflow.com/nidacorian-protonmail-com/pool-billiard
+extra 2 - https://universe.roboflow.com/mark-dj0yk/pool-balls-detection-srlqi
+extra 3 - https://universe.roboflow.com/pool-ball-detection/pool-ball-detection-6lfd9
+

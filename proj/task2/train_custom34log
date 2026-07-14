@@ -1,0 +1,124 @@
+nohup: ignoring input
+🔧 Parser running with datasets: ['main_dataset', 'extra-3', 'custom']
+Loaded 247 partition rules from partition.csv
+
+Success! Extracted 1532 images into parsed_dataset_catalog.json
+Using device: cuda
+GPU: Quadro RTX 8000
+VRAM available: 47.3 GB
+📁 Initialized new experiment folder: results_task2/run_76
+   ├─ 🧠 Models:  results_task2/run_76/models
+   ├─ 📊 Graphs:  results_task2/run_76/graphs
+   └─ 📝 Results: results_task2/run_76/results.csv
+Config loaded ✓
+Loaded 1,532 entries
+Train: 1,367  |  Val: 145  |  Test: 20
+Dataset classes ready ✓
+Model                  Parameters
+----------------------------------
+ConvNeXt_Tiny          28,021,361
+Helpers ready ✓
+Initializing Datasets and DataLoaders...
+
+============================================================
+  Training: ConvNeXt_Tiny
+============================================================
+  [  1/50]  train=2.4702  val=2.2312 ← ✓
+  [  2/50]  train=2.1773  val=2.0801 ← ✓
+  [  3/50]  train=2.0390  val=2.0540 ← ✓
+  [  4/50]  train=1.9867  val=1.8570 ← ✓
+  [  5/50]  train=1.8697  val=1.6725 ← ✓
+  [  6/50]  train=1.8004  val=1.7486
+  [  7/50]  train=1.7890  val=1.6416 ← ✓
+  [  8/50]  train=1.6941  val=1.6994
+  [  9/50]  train=1.6202  val=1.4819 ← ✓
+  [ 10/50]  train=1.6036  val=1.6189
+  [ 11/50]  train=1.5654  val=1.5142
+  [ 12/50]  train=1.5273  val=1.4357 ← ✓
+  [ 13/50]  train=1.5254  val=1.3715 ← ✓
+  [ 14/50]  train=1.4639  val=1.3037 ← ✓
+  [ 15/50]  train=1.3824  val=1.3619
+  [ 16/50]  train=1.3819  val=1.3841
+  [ 17/50]  train=1.3397  val=1.4260
+  [ 18/50]  train=1.2998  val=1.1846 ← ✓
+  [ 19/50]  train=1.2676  val=1.2827
+  [ 20/50]  train=1.2345  val=1.1690 ← ✓
+  [ 21/50]  train=1.1799  val=1.0462 ← ✓
+  [ 22/50]  train=1.1567  val=1.1058
+  [ 23/50]  train=1.1562  val=1.1148
+  [ 24/50]  train=1.0691  val=1.0657
+  [ 25/50]  train=1.0939  val=1.0264 ← ✓
+  [ 26/50]  train=1.0703  val=1.1637
+  [ 27/50]  train=0.9983  val=0.9935 ← ✓
+  [ 28/50]  train=0.9641  val=0.9173 ← ✓
+  [ 29/50]  train=0.9287  val=0.9046 ← ✓
+  [ 30/50]  train=0.9281  val=1.0160
+  [ 31/50]  train=0.8976  val=0.9236
+  [ 32/50]  train=0.8458  val=0.8662 ← ✓
+  [ 33/50]  train=0.8249  val=0.9190
+  [ 34/50]  train=0.8289  val=0.8640 ← ✓
+  [ 35/50]  train=0.7993  val=0.8602 ← ✓
+  [ 36/50]  train=0.7699  val=0.8895
+  [ 37/50]  train=0.7591  val=0.8188 ← ✓
+  [ 38/50]  train=0.7373  val=0.8195
+  [ 39/50]  train=0.7331  val=0.8600
+  [ 40/50]  train=0.7123  val=0.8413
+  [ 41/50]  train=0.7015  val=0.8493
+  [ 42/50]  train=0.7102  val=0.8712
+  [ 43/50]  train=0.6874  val=0.8629
+  [ 44/50]  train=0.6821  val=0.8490
+  [ 45/50]  train=0.6888  val=0.8406
+  [ 46/50]  train=0.6746  val=0.8355
+  [ 47/50]  train=0.6887  val=0.8358
+  [ 48/50]  train=0.6849  val=0.8430
+  [ 49/50]  train=0.6741  val=0.8446
+  [ 50/50]  train=0.6807  val=0.8457
+
+  Test →  MAE=0.850  RMSE=1.204  Acc@1=0.800  ExactAcc=0.400
+
+
+All models done! Results saved to results_task2/run_76/results.csv
+Saved: loss_curves.png
+Saved: scatter_plots.png
+Saved: error_distributions.png
+           Model  MAE ↓  RMSE ↓  Acc@1 ↑  Exact ↑
+1  ConvNeXt_Tiny   0.85   1.204      0.8      0.4
+Saved: model_comparison.png
+📊 Final Model Rankings saved to CSV:
+ Rank         model               datasets_used  MAE  MSE    RMSE  Acc@1  ExactAcc
+    1 ConvNeXt_Tiny main_dataset,extra-3,custom 0.85 1.45 1.20416    0.8       0.4
+------------------------------------------------------------
+🏆 Best model: ConvNeXt_Tiny  (ExactAcc=0.400)
+Running full evaluation on 20 test images using ConvNeXt_Tiny...
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]
+
+========================================
+  FINAL TEST SET EVALUATION REPORT
+========================================
+Model Evaluated        : ConvNeXt_Tiny
+Total Images Evaluated : 20
+MAE  (avg error)       : 0.850 balls
+RMSE (penalty error)   : 1.204
+Acc@1 (within ±1)      : 80.00%
+Exact Accuracy         : 40.00%
+========================================
+
+🔍 Detailed error analysis saved to: results_task2/run_76/ConvNeXt_Tiny_error_breakdown.csv
+
+Top 5 Worst Predictions:
+                                     Image_Name  Actual_Balls  Predicted_Balls  Error
+ 94_png.rf.914de818a4ff0d086b7cb41abc8b95fd.jpg             9               12      3
+ 38_png.rf.5f7178d32f8c80830acba72ceaa53c52.jpg             8               10      2
+ 26_png.rf.58fd63888dc80d24e902a96995a31656.jpg            10                8     -2
+115_png.rf.ed51d53dd5c384b1f26a2b6ece52ad69.jpg            11               13      2
+  1_png.rf.8199e7f82efa196a0732a582c5d2472e.jpg             2                3      1
+
+🔍 Finding missed predictions for ConvNeXt_Tiny...
+Found 12 mistakes. Generating heatmaps...
+✅ Heatmaps of missed images saved to results_task2/run_76/graphs/ConvNeXt_Tiny_missed_gradcam.png
+🚀 Starting final pipeline run with datasets: ['main_dataset', 'extra-3', 'custom']
+
+▶️  Running parser.py...
+▶️  Running task2.py...
+
+✅ PIPELINE COMPLETED! Your final model and results are ready.
